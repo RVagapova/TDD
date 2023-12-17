@@ -1,10 +1,6 @@
 import org.example.PhoneBook;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class PhoneBookTest {
@@ -19,8 +15,9 @@ public class PhoneBookTest {
         Assertions.assertEquals(expected2, PhoneBook.add("Павел", "89613795611"));
         Assertions.assertEquals(expected3, PhoneBook.add("Александр", "+79871234569"));
     }
+
     @Test
-    public  void testFindByNumber() {
+    public void testFindByNumber() {
         String expected = "Павел";
         PhoneBook.add("Павел", "+74957894561");
         Assertions.assertEquals(expected, PhoneBook.findByNumber("+74957894561"));
@@ -37,12 +34,13 @@ public class PhoneBookTest {
 
     @Test
     public void testPrintAllNames() {
-        List<String> expected = new ArrayList<>();
-        List<String> actual = PhoneBook.printAllNames();
-        expected.add("Андрей");
-        expected.add("Олег");
-        for (int i = 0; i < expected.size(); i++) {
-            Assert.assertEquals(expected.get(i),actual.get(i));
-        }
+        String[] expected = new String[2];
+        PhoneBook.add("Олег", "589");
+        PhoneBook.add("Андрей", "874");
+        String[] actual = PhoneBook.printAllNames();
+
+        expected[0] = "Андрей";
+        expected[1] = "Олег";
+        Assertions.assertArrayEquals(expected, actual);
     }
 }

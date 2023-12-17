@@ -1,25 +1,24 @@
 package org.example;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class PhoneBook {
-    private static final Map<String,String> phoneBook = new HashMap<>();
+    private static final Map<String, String> phoneBook = new TreeMap<>();
 
     public static int add(String name, String number) {
-        if(phoneBook.containsKey(name)) {
+        if (phoneBook.containsKey(name)) {
             System.out.println("Такое имя уже добавлено в книгу");
-        } else{
-            phoneBook.put(name,number);
+        } else {
+            phoneBook.put(name, number);
         }
         return phoneBook.size();
     }
 
     public static String findByNumber(String number) {
         String result = null;
-        for (Map.Entry<String, String> item: phoneBook.entrySet()) {
-            if(item.getValue().equals(number)) {
+        for (Map.Entry<String, String> item : phoneBook.entrySet()) {
+            if (item.getValue().equals(number)) {
                 result = item.getKey();
                 break;
             }
@@ -31,7 +30,14 @@ public class PhoneBook {
         return phoneBook.get(name);
     }
 
-    public static List<String> printAllNames() {
-        return null;
+    public static String[] printAllNames() {
+        String[] names = new String[phoneBook.size()];
+        int i = 0;
+        for (String name : phoneBook.keySet()) {
+            names[i] = name;
+            System.out.print(names[i] + " ");
+            i++;
+        }
+        return names;
     }
 }
