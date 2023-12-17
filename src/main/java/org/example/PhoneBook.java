@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PhoneBook {
-    private static Map<String,String> phoneBook = new HashMap<>();
+    private static final Map<String,String> phoneBook = new HashMap<>();
 
     public static int add(String name, String number) {
         if(phoneBook.containsKey(name)) {
@@ -16,6 +16,13 @@ public class PhoneBook {
     }
 
     public static String findByNumber(String number) {
-        return null;
+        String result = null;
+        for (Map.Entry<String, String> item: phoneBook.entrySet()) {
+            if(item.getValue().equals(number)) {
+                result = item.getKey();
+                break;
+            }
+        }
+        return result;
     }
 }
