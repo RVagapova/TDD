@@ -1,6 +1,10 @@
 import org.example.PhoneBook;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class PhoneBookTest {
@@ -29,5 +33,16 @@ public class PhoneBookTest {
         PhoneBook.add("Павел", "+74957894561");
         Assertions.assertEquals(expected, PhoneBook.findByName("Павел"));
         Assertions.assertNull(PhoneBook.findByName("Олег"));
+    }
+
+    @Test
+    public void testPrintAllNames() {
+        List<String> expected = new ArrayList<>();
+        List<String> actual = PhoneBook.printAllNames();
+        expected.add("Андрей");
+        expected.add("Олег");
+        for (int i = 0; i < expected.size(); i++) {
+            Assert.assertEquals(expected.get(i),actual.get(i));
+        }
     }
 }
