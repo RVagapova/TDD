@@ -16,6 +16,6 @@ public class PhoneBookTest {
 
         Assert.assertEquals(expected1, PhoneBook.add("Александр", "+74957480110"));
         Assert.assertEquals(expected2, PhoneBook.add("Павел", "89613795611"));
-        Assert.assertEquals(expected3, PhoneBook.add("Алекснадр", "+79871234569"));
+        Assert.assertEquals(expected3, PhoneBook.add("Александр", "+79871234569"));
     }
 }
