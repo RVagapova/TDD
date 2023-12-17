@@ -18,4 +18,11 @@ public class PhoneBookTest {
         Assert.assertEquals(expected2, PhoneBook.add("Павел", "89613795611"));
         Assert.assertEquals(expected3, PhoneBook.add("Александр", "+79871234569"));
     }
+    @Test
+    public  void testFindByNumber() {
+        String expected = "Павел";
+        PhoneBook.add("Павел", "+74957894561");
+        Assert.assertEquals(expected, PhoneBook.findByNumber("+74957894561"));
+        Assert.assertEquals(null, PhoneBook.findByNumber("84957418520"));
+    }
 }

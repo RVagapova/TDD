@@ -12,7 +12,10 @@ public class PhoneBook {
         } else{
             phoneBook.put(name,number);
         }
-        System.out.println(phoneBook.toString());
         return phoneBook.size();
+    }
+
+    public static String findByNumber(String number) {
+        return null;
     }
 }
