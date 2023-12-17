@@ -25,4 +25,8 @@ public class PhoneBook {
         }
         return result;
     }
+
+    public static String findByName(String name) {
+        return null;
+    }
 }
